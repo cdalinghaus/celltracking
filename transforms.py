@@ -51,14 +51,6 @@ class PatchTransform:
                 #print(frame_pointer_x, frame_pointer_y)
                 
                 frames[frame_index, :, frame_pointer_y*self.patch_size:frame_pointer_y*self.patch_size+self.patch_size, frame_pointer_x*self.patch_size:frame_pointer_x*self.patch_size+self.patch_size] = patch
-                
-                #print(patch_index, frame_index, frame_offset)
-                
-                """
-                frame = torch.zeros((num_channels, self.frame_size, self.frame_size))
-                for x in range(num_patches):
-                    for y in range(num_patches):
-                        frame[:, x*self.patch_size:x*self.patch_size+self.patch_size, y*self.patch_size:y*self.patch_size+self.patch_size] = 
-                """
+
             examples.append(frames)
         return torch.stack(examples, axis=0)
